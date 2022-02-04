@@ -16,8 +16,6 @@ def MAIN():
     print ('''\nWelcome to Group 4’s App! 
 This is an app to calculate your carbon footprint from your shopping, and help you save the Earth just from small changes to your diet :)
     ''')
-    
-    
 # message 2
     while True:
         print('='*50)
