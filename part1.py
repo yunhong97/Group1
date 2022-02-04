@@ -40,7 +40,7 @@ If you are ready to start entering your ingredients instead and calculate your c
             carbon_calculator()
             break
 
-# menu
+# menu to choose categories
 def menu():
     while True:
         menu = input ('''We have 4 categories of ingredients you can input:
