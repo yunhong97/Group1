@@ -86,7 +86,7 @@ elif choice==("4"):
             print(ingredient)
             float(input("What is the total weight of this ingredient?: "))
     
-#%%
+#%% (ignore)
 elif choice==("2"):
    input("Please input your ingredient's name: ")
    if choice!=("vegetables"):
