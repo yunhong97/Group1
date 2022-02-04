@@ -1,137 +1,97 @@
-# variables to be used for calculator
-carbon_per_meal = 1.7
-tree_absorb_per_year = 21.7724
-carbon_emission_dataset = {'beef':27,'apple':0.11,'beansprout':0.2,'cane sugar': 3}
-meat = ['beef']
-fruits = ['apple']
-vegetables = ['beansprout']
-others = ['cane sugar']
-user_input = {}
 
+welcomet= ("Welcome to Group 4’s App! This is an app to calculate your carbon footprint from your shopping, and help you save the Earth just from small changes to your diet.")
+print(welcomet)
+#%%
+#Message2
+#Ingredient List
+meats = ["Beef","Chicken","Duck","Fish","Lamb", "Pork"]
+fruits = ["Apple","Pear", "Banana", "Grapes", "Oranges"]
+vegetables = ["Beansprout", "Carrot", "Corn","Ginger","Potatoes","Lentils"]
+others = ["Cane Sugar", "Beans", "Coffee", "Tea", "Eggs", "Honey"]
+#End of Ingredients List
 
-# main function
-def MAIN():
-    
-# message 1
-    print ('''\nWelcome to Group 4’s App! 
-This is an app to calculate your carbon footprint from your shopping, and help you save the Earth just from small changes to your diet :)
-    ''')
-    
-    
-# message 2
-    while True:
-        print('='*50)
-        print ('''\nTo view which ingredients you can input, type ‘menu’
-If you are ready to start entering your ingredients instead and calculate your carbon footprint, type ‘start’.
-        ''')
-        
-        user_input = input ('Do you wish to view the menu (type menu) or start entering your ingredients (type start)? ')
-        if user_input not in ('start','menu'):
-            print('='*50)
-            print ('\nPlease input type or start!')
-            continue
-        elif user_input == 'menu':
-            print('='*50)
-            while menu():
-                permission()
-                break
-            continue
-            
-        elif user_input == 'start':
-            print('='*50)
-            carbon_calculator()
-            break
+print("To view available ingredients for selection, type 'menu'.")
+print("To enter ingredients for calculation, type 'start'.")
 
-# menu
-def menu():
-    while True:
-        menu = input ('''We have 4 categories of ingredients you can input:
-Meat (1)
-Fruits (2)
-Vegetables (3)
-Others (4)
+uselect = input("Menu or start:")
 
-Type the corresponding number to view the specific ingredients you can input under that category: ''')
-
-        if menu not in ('1','2','3','4'):
-            print('='*50)
-            print ('You have entered an invalid input. Type 1 for Meat, 2 for Fruits, 3 for Vegetables and 4 for Others: ')
-            continue
+def showmenu():
+    if uselect == "menu":
+        umenu = input("You can choose from meats, fruits, vegetables or others:")
+        if umenu == "meats":
+            print(meats)
+            review = input("Do you wish to view other categories? Y/N:")
+            if review =="Y":
+                showmenu()
+                    
+        elif umenu == "fruits":
+            print(fruits)
+            review = input("Do you wish to view other categories? Y/N:")
+            if review =="Y":
+                showmenu()
+                
+        elif umenu!= "vegetables":
+            print(vegetables)
+            review = input("Do you wish to view other categories? Y/N:")
+            if review =="Y":
+                showmenu()
+                
+        elif umenu!="others":
+            print(others)
+            review = input("Do you wish to view other categories? Y/N:")
+            if review =="Y":
+                showmenu()
+                
         else:
-            if menu == '1':
-                print(meat)
-                print('='*50)
-                return True
-                break
-            if menu == '2':
-                print(fruits)
-                print('='*50)
-                return True
-                break
-            if menu == '3':
-                print(vegetables)
-                print('='*50)
-                return True
-                break
-            if menu == '4':
-                print(others)
-                print('='*50)
-                return True
-                break
-            
-# to ask user if he wants to source other categories or exit to main menu              
-def permission():
-    while True:
-        permission = input ('Do you wish to source for other categories? Type "y" for yes and "n" to exit to main menu: ')
-        if permission == 'y'.lower():
-            menu()
-        elif permission == 'n'.lower():
-            break
-        else:
-            print ('Please input "y" to source for other categories and "n" to exit to main menu.')
-            continue
-      
-# to record down each ingredient from user input  
-def carbon_calculator():
-    while True:
-        # message 3
-        meals = input('How many meals do you want to take into account for? ')
-        try:
-            meals = float(meals)
-            break
-        except ValueError:
-            print ('Please input a number')
-            continue
-        
-    while True:
-        # message 4
-        ingredient = input ('Please input your ingredient: ')
-        if ingredient not in carbon_emission_dataset:
-            print ('Sorry, we currently do not have the data for this ingredient. These are our available ingredients')
-            print (f''' 
-Meat: {meat}
-Fruits: {fruits}
-Vegetables: {vegetables}
-Others: {others}''')
-            continue
-        else:
-            # message 5
-            while True:
-                weight = input ('Please enter total weight of ingredients in kilograms: ')
-                try:
-                    weight = float(weight)
-                    break
-                except ValueError:
-                    print ('Please input a number')
-                    continue
-            break
-        
-            
-MAIN()
-        
-        
+            tryagain=input("Invalid input, try again? Y/N:")
+            if tryagain == "Y":
+                showmenu()
+            if tryagain =="N":
+                exit
+
+
+if uselect == "menu":
+    showmenu()
+    
+elif uselect =="start":
+    print("Test")      
+
+#%%
+#Message3
+
+upax= int(input("How many meals are you preparing for? (1 meal per person if >1 pax)"))
+# number used to divide 
+
+while upax != int():
+    upax = int(input(""))
     
 
+#%%
+#Message4
 
+meats = ["Beef","Chicken","Duck","Fish","Lamb", "Pork"]
+fruits = ["Apple","Pear", "Banana", "Grapes", "Oranges"]
+vegetables = ["Beansprout", "Carrot", "Corn","Ginger","Potatoes","Lentils"]
+others = ["Cane Sugar", "Beans", "Coffee", "Tea", "Eggs", "Honey"]
+
+i_name= input("Please input ingredient name:")
+
+while True:
+    if i_name in (meats):
+        print("You have selected", (i_name))
+    
+
+else:
+    print("Invalid selection, please try again")
+    
+    
+#%%
+#Message5
+# Average safe carbon footprint per meal is ~0.365kg (2 tons carbon emission, 20% into food consumption ~400kg P.A / 365/ 3)
+
+i_weight= float(input("Please input weight of ingredient in kg"))
+
+print("The carbon footprint of your", i_name, "is", i_weight *#carbon footprint of ingredient per kg )
+print("The carbon footprint of your meal is", i_weight * #carbon footprint / upax )
 
 
