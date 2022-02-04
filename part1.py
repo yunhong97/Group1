@@ -26,7 +26,7 @@ If you are ready to start entering your ingredients instead and calculate your c
         user_input = input ('Do you wish to view the menu (type menu) or start entering your ingredients (type start)? ')
         if user_input not in ('start','menu'):
             print('='*50)
-            print ('\nPlease input type or start!')
+            print ('\nPlease input menu or start!')
             continue
         elif user_input == 'menu':
             print('='*50)
