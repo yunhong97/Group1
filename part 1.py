@@ -88,7 +88,7 @@ def carbon_calculator():
     #supposed to calculate limit here? you can calculate here or later. so long as if there is a variable to store meal count, gud enuf
 
 # MESSAGE 4
-    print("Enter ingredients below.") # do you want to loop here as well? if so, can refer to line 79 to 84
+    print("Enter ingredients below.") # do you want to loop here as well? if so, can refer to line 55 to 63
     ingredient1=input("Ingredient 1:") 
     
     while True:
