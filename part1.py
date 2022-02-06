@@ -1,134 +1,180 @@
-# variables to be used for calculator
-carbon_per_meal = 1.7
-tree_absorb_per_year = 21.7724
-carbon_emission_dataset = {'beef':27,'apple':0.11,'beansprout':0.2,'cane sugar': 3}
-meat = ['beef']
-fruits = ['apple']
-vegetables = ['beansprout']
-others = ['cane sugar']
-user_input = {}
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Feb  4 01:46:13 2022
 
+@author: 65947
+"""
+#message 1
+welcome_msg=print("Welcome to Group 4’s App!\nThis is an app to calculate your carbon footprint from your shopping, and help you save the Earth just from small changes in your diet.")
 
-# main function
-def MAIN():
-    
-# message 1
-    print ('''\nWelcome to Group 4’s App! 
-This is an app to calculate your carbon footprint from your shopping, and help you save the Earth just from small changes to your diet :)
-    ''')
-# message 2
+#message 2
+def main_menu():
     while True:
-        print('='*50)
-        print ('''\nTo view which ingredients you can input, type ‘menu’
-If you are ready to start entering your ingredients instead and calculate your carbon footprint, type ‘start’.
-        ''')
+        choice = input("\nTo view which ingredients you can input, type 'menu'\nIf you are ready to start entering your ingredients instead, type 'start':").lower()
+        if choice == 'menu':
+            menu_input()
+            break
         
-        user_input = input ('Do you wish to view the menu (type menu) or start entering your ingredients (type start)? ')
-        if user_input not in ('start','menu'):
-            print('='*50)
-            print ('\nPlease input menu or start!')
-            continue
-        elif user_input == 'menu':
-            print('='*50)
-            while menu():
-                permission()
-                break
-            continue
-            
-        elif user_input == 'start':
-            print('='*50)
+        if choice == 'start':
             carbon_calculator()
             break
-
-# menu to choose categories
-def menu():
-    while True:
-        menu = input ('''We have 4 categories of ingredients you can input:
-Meat (1)
-Fruits (2)
-Vegetables (3)
-Others (4)
-
-Type the corresponding number to view the specific ingredients you can input under that category: ''')
-
-        if menu not in ('1','2','3','4'):
-            print('='*50)
-            print ('You have entered an invalid input. Type 1 for Meat, 2 for Fruits, 3 for Vegetables and 4 for Others: ')
+        
+        if choice not in ('menu','start'):
+            print ('Please input either menu or start')
             continue
-        else:
-            if menu == '1':
-                print(meat)
-                print('='*50)
-                return True
+    
+def menu_input():
+    while True:
+            print("\nMeat\nVegtables\nFruits\nOthers")
+            choice=input("Choice of ingredient? 1 for meat, 2 for vegetables, 3 for fruits and 4 for others? ")
+            
+            if choice==("1"):
+                print("Meat:\nBeef\nChicken\nChicken Essence\nDuck\nFish\nLamb\nPork\nPoultry\nPrawns\nTuna\nTurkey")
+                permission() 
+                
+            elif choice==("2"):
+                print("Vegetables:\nBeansprout\nCarrot\nCorn\nFlour\nGinger\nLentils\nPotatoes\nTomatoes")
+                permission()
+                
+            elif choice==("3"):
+                print("Fruits:\nApple\nApricot\nBanana\nChilli peppers\nGrapes\nOrange\nPears\nPineapple\nStrawberry")
+                permission()
+                
+            elif choice==("4"):
+                print("Others:\nSugar Cane\nBeer\nCheese\nChocolate\nCoffee\nEggs\nHoney\nIce Cream\nInstant Noodles\nMilk\nNuts\nOil\nPasta\nRice\nTea")
+                permission()
+            else:
+                print ('Please input 1 for meat, 2 for vegetables, 3 for fruits and 4 for other ingredients!')
+                continue
+       
+def permission(): # so that user can either continue browsing (1), go straight to carbon calculator (2), or go to main menu (3)
+        while True:
+            start=input("Ready to start? 1 for no, 2 for yes, 3 if you wish to go to the main menu: ") 
+            if start=="1":
+               menu_input()
+               break
+               
+            if start == '2':
+                carbon_calculator()
                 break
-            if menu == '2':
-                print(fruits)
-                print('='*50)
-                return True
-                break
-            if menu == '3':
-                print(vegetables)
-                print('='*50)
-                return True
-                break
-            if menu == '4':
-                print(others)
-                print('='*50)
-                return True
+                
+            if start == '3':
+                main_menu()
                 break
             
-# to ask user if he wants to source other categories or exit to main menu              
-def permission():
+            if start not in ('1','2','3'):
+                print ('Invalid input')
+                continue
+            
+            
+def carbon_calculator(): #message 3   
     while True:
-        permission = input ('Do you wish to source for other categories? Type "y" for yes and "n" to exit to main menu: ')
-        if permission == 'y'.lower():
-            menu()
-        elif permission == 'n'.lower():
-            break
-        else:
-            print ('Please input "y" to source for other categories and "n" to exit to main menu.')
-            continue
-      
-# to record down each ingredient from user input  
-def carbon_calculator():
-    while True:
-        # message 3
-        meals = input('How many meals do you want to take into account for? ')
+        meals = input("How many meals are you planning to prepare? (1 person 1 meal → 5 people 5 meals): ") 
         try:
-            meals = float(meals)
-            break
+          meals=int(meals)
+          break
         except ValueError:
-            print ('Please input a number')
-            continue
-        
-    while True:
-        # message 4
-        ingredient = input ('Please input your ingredient: ')
-        if ingredient not in carbon_emission_dataset:
-            print ('Sorry, we currently do not have the data for this ingredient. These are our available ingredients')
-            print (f''' 
-Meat: {meat}
-Fruits: {fruits}
-Vegetables: {vegetables}
-Others: {others}''')
-            continue
-        else:
-            # message 5
+          print("\nYou have entered a non-numeric, please enter a valid number.")
+          continue # this is how to loop it!
+   
+    
+    choice=input("Choice of ingredient?\n1 for meat\n2 for vegetables\n3 for fruits\n4 for others?\n") #message 4 and 5
+    if choice==("1"):
+        print("Meat:\nBeef\nChicken\nChicken Essence\nDuck\nFish\nLamb\nPork\nPoultry\nPrawns\nTuna\nTurkey")
+    elif choice==("2"):
+        print("Vegetables:\nBeansprout\nCarrot\nCorn\nFlour\nGinger\nLentils\nPotatoes\nTomatoes")
+    elif choice==("3"):
+        print("Fruits:\nApple\nApricot\nBanana\nChilli peppers\nGrapes\nOrange\nPears\nPineapple\nStrawberry")
+    elif choice==("4"):
+        print("Others:\nSugar Cane\nBeer\nCheese\nChocolate\nCoffee\nEggs\nHoney\nIce Cream\nInstant Noodles\nMilk\nNuts\nOil\nPasta\nRice\nTea")
+
+    if choice==("1"):
+       ingredient=input("Please input your ingredient's name: ")
+       meat=["beef","lamb","chicken"]
+       while ingredient not in meat: 
+               print("Ingredient not in dataset, try again: ")
+               ingredient=input("Please input your ingredient's name: ")
+       else:
+            print(ingredient)
             while True:
-                weight = input ('Please enter total weight of ingredients in kilograms: ')
+                weight = input("What is the total weight of this ingredient?: ")
                 try:
                     weight = float(weight)
                     break
-                except ValueError:
-                    print ('Please input a number')
+                except:
+                    print ('Please insert a number')
                     continue
-            break
-        
-            
-MAIN()
-        
-        
     
+    elif choice==("2"):
+            ingredient=input("Please input your ingredient's name: ")
+            vegetables=["beansprout","carrot","corn"]
+            while ingredient not in vegetables:
+                print("Ingredient not in dataset, try again: ")
+                ingredient=input("Please input your ingredient's name: ")
+            else:
+                print(ingredient)
+                while True: # need to check if it is a float. you can define this as a separate function and add it in as well if you wish
+                    weight = input("What is the total weight of this ingredient?: ")
+                    try:
+                        weight = float(weight)
+                        break
+                    except:
+                        print ('Please insert a number')
+                        continue
+    
+    elif choice==("3"):
+            ingredient=input("Please input your ingredient's name: ")
+            fruits=["Apple","Apricot","Banana"]
+            while ingredient not in fruits: 
+                print("Ingredient not in dataset, try again: ")
+                ingredient=input("Please input your ingredient's name: ")
+            else:
+                print(ingredient)
+                while True:
+                    weight = input("What is the total weight of this ingredient?: ")
+                    try:
+                        weight = float(weight)
+                        break
+                    except:
+                        print ('Please insert a number')
+                        continue
+                
+    elif choice==("4"):
+            ingredient=input("Please input your ingredient's name: ")
+            others=["beer","cheese","chocolate"]
+            while ingredient not in others: 
+                print("Ingredient not in dataset, try again: ")
+                ingredient=input("Please input your ingredient's name: ")
+            else:
+                print(ingredient)
+                while True:
+                    weight = input("What is the total weight of this ingredient?: ")
+                    try:
+                        weight = float(weight)
+                        break
+                    except:
+                        print ('Please insert a number')
+                        continue
+
+main_menu()
+
+#%% (ignore)
+elif choice==("2"):
+   input("Please input your ingredient's name: ")
+   if choice!=("vegetables"):
+           input("Ingredient not in dataset, try again: ")
+elif choice==("3"):
+   input("Please input your ingredient's name: ")
+   if choice!=("fruits"):
+           input("Ingredient not in dataset, try again: ")    
+elif choice==("4"):
+   input("Please input your ingredient's name: ")
+   if choice!=("others"):
+           input("Ingredient not in dataset, try again: ")    
+        
+        
+      
+
 
 
 
