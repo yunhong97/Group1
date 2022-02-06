@@ -95,15 +95,15 @@ def carbon_calculator(): #message 3
                print("Ingredient not in dataset, try again: ")
                ingredient=input("Please input your ingredient's name: ")
        else:
-            print(ingredient)
-            while True: # need to check if it is a float. you can define this as a separate function and add it in as well if you wish
-                weight = input("What is the total weight of this ingredient?: ")
-                try:
-                    weight = float(weight)
-                    break
-                except:
-                    print ('Please insert a number')
-                    continue
+        print(ingredient)
+        while True: # need to check if it is a float. you can define this as a separate function and add it in as well if you wish
+            weight = input("What is the total weight of this ingredient?: ")
+            try:
+                weight = float(weight)
+                break
+            except:
+                print ('Please insert a number')
+                continue
     
     elif choice==("2"):
             ingredient=input("Please input your ingredient's name: ")
