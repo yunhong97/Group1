@@ -39,19 +39,23 @@ def showmenu():
             if umenu == "meats":
                 print(meats)
                 permission() # permission function
+                break
 
                         
             if umenu == "fruits":
                 print(fruits)
                 permission()
+                break
                     
             if umenu == "vegetables":
                 print(vegetables)
                 permission()
+                break
                     
             if umenu == "others":
                 print(others)
                 permission()
+                break
                 
             if umenu not in ('meats','others','fruits','vegetables'):
                 print ("Invalid input. Please type either meats, fruits, vegetables or others.")
