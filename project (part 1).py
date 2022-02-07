@@ -30,19 +30,24 @@ def menu_input():
             
             if choice==("1"):
                 print("Meat:\nBeef\nChicken\nChicken Essence\nDuck\nFish\nLamb\nPork\nPoultry\nPrawns\nTuna\nTurkey")
-                permission() 
+                permission()
+                break
                 
             elif choice==("2"):
                 print("Vegetables:\nBeansprout\nCarrot\nCorn\nFlour\nGinger\nLentils\nPotatoes\nTomatoes")
                 permission()
+                break
                 
             elif choice==("3"):
                 print("Fruits:\nApple\nApricot\nBanana\nChilli peppers\nGrapes\nOrange\nPears\nPineapple\nStrawberry")
                 permission()
+                break
                 
             elif choice==("4"):
                 print("Others:\nSugar Cane\nBeer\nCheese\nChocolate\nCoffee\nEggs\nHoney\nIce Cream\nInstant Noodles\nMilk\nNuts\nOil\nPasta\nRice\nTea")
                 permission()
+                break
+                
             else:
                 print ('Please input 1 for meat, 2 for vegetables, 3 for fruits and 4 for other ingredients!')
                 continue
