@@ -27,6 +27,8 @@ def main_menu():
             break
         
         if choice == 'start':
+            print()
+            print('='*50)
             carbon_calculator()
             break
         
@@ -92,7 +94,7 @@ def permission(): # so that user can either continue browsing (1), go straight t
         while True:
             print()
             print('='*50)
-            start=input("Ready to start? 1 for no (you can continue browsing the menu), 2 for yes (this opens the calculator), 3 if you wish to go to the main menu: ") 
+            start=input("Ready to start? 1 for no (you can continue browsing the menu), 2 for yes (this opens the calculator): ") 
             if start=="1":
                print()
                print('='*50)
@@ -104,14 +106,9 @@ def permission(): # so that user can either continue browsing (1), go straight t
                 print('='*50)
                 carbon_calculator()
                 break
-                
-            if start == '3':
-                print()
-                print('='*50)
-                main_menu()
-                break
+
             
-            if start not in ('1','2','3'):
+            if start not in ('1','2'):
                 print()
                 print('='*50)
                 print ('Invalid input')
@@ -120,8 +117,6 @@ def permission(): # so that user can either continue browsing (1), go straight t
             
 def carbon_calculator(): #message 3   
     while True:
-        print()
-        print('='*50)
         meals = input("How many meals are you planning to prepare? (1 person 1 meal → 5 people 5 meals): ") 
         try:
           meals=int(meals)
